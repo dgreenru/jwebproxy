@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <display-name>Web Proxy</display-name>
+    <description>
+        A J2EE application implementing a web proxy.
+    </description>
+  
+    <filter>
+        <filter-name>Proxy</filter-name>
+        <filter-class>ru.dgreen.webproxy.ProxyFilter</filter-class>
+        <init-param>
+            <param-name>tld</param-name>
+            <param-value>.proxy.highload.net</param-value>
+        </init-param>
+        <init-param>
+            <param-name>port</param-name>
+            <param-value>80</param-value>
+        </init-param>
+        <init-param>
+            <param-name>sslPort</param-name>
+            <param-value>443</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Proxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+   
+
+</web-app>
+ 
